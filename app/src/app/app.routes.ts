@@ -31,5 +31,12 @@ export const APP_ROUTES = [
     data: {
       title: 'APP.SIGN_IN'
     }
+  },
+  {
+    path: 'uc1',
+    loadComponent: () =>
+      import('../../../projects/aca-content/quick-note/learning-uc1/counter.component')
+        .then((m) => m.CounterComponent),
+    data: { title: 'UC1' }
   }
 ];

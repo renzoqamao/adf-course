@@ -1,0 +1,4 @@
+<h3>Contador: {{ count() }} (doble: {{ double() }})</h3>
+<button (click)="decrement()" [disabled]="count() === 0">−</button>
+<button (click)="increment()">+</button>
+<p>Segundos en la página: {{ seconds$ | async }}</p>
