@@ -21,7 +21,8 @@
             "order": 700,
             "icon": "sticky_note_2",
             "title": "QUICK_NOTE.ACTIONS.ADD",
-            "actions": { "click": "quick-note.actions.add" }
+            "actions": { "click": "quick-note.actions.add" },
+            "rules": { "visible": ["quick-note.canAddNote"] }
           }
         ]
       }
