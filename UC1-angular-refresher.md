@@ -295,7 +295,7 @@ Para verlo en una URL real, agregalo como **ruta** de nivel superior en la app
 > mové la carpeta a `app/src/app/learning-uc1/` (queda dentro del scope de la app)
 > y cambiá el import a `./learning-uc1/counter.component`.
 
-### 7. Commit y merge a main
+### 7. Commit
 ```bash
 git add .
 git commit -m "UC1: repaso Angular (signals, inject, RxJS)"

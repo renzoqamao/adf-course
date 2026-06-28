@@ -1,0 +1,12 @@
+{
+  "QUICK_NOTE": {
+    "ACTIONS": { "ADD": "Agregar nota" },
+    "DIALOG": {
+      "TITLE": "Nueva nota",
+      "PLACEHOLDER": "Escribí tu nota...",
+      "SAVE": "Guardar",
+      "CANCEL": "Cancelar"
+    },
+    "MESSAGES": { "SAVED": "Nota guardada", "ERROR": "No se pudo guardar la nota" }
+  }
+}

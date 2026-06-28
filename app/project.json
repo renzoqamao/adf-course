@@ -89,6 +89,11 @@
             "glob": "**/*",
             "input": "projects/aca-content/assets",
             "output": "./assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "projects/aca-content/quick-note/assets",
+            "output": "./assets/quick-note"
           }
         ],
         "styles": [

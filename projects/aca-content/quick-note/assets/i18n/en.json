@@ -1,0 +1,12 @@
+{
+  "QUICK_NOTE": {
+    "ACTIONS": { "ADD": "Add note" },
+    "DIALOG": {
+      "TITLE": "New note",
+      "PLACEHOLDER": "Write your note...",
+      "SAVE": "Save",
+      "CANCEL": "Cancel"
+    },
+    "MESSAGES": { "SAVED": "Note saved", "ERROR": "Could not save the note" }
+  }
+}

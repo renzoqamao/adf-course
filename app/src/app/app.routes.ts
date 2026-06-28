@@ -38,5 +38,12 @@ export const APP_ROUTES = [
       import('../../../projects/aca-content/quick-note/learning-uc1/counter.component')
         .then((m) => m.CounterComponent),
     data: { title: 'UC1' }
+  },
+  {
+    path: 'uc2',
+    loadComponent: () =>
+      import('../../../projects/aca-content/quick-note/learning-uc2/uc2-demo.component')
+        .then((m) => m.Uc2DemoComponent),
+    data: { title: 'UC2' }
   }
 ];
