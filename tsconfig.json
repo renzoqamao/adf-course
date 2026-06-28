@@ -33,7 +33,8 @@
       "@alfresco/aca-shared": ["projects/aca-shared/src/public-api.ts"],
       "@alfresco/aca-shared/rules": ["projects/aca-shared/rules/src/public-api.ts"],
       "@alfresco/aca-shared/store": ["projects/aca-shared/store/src/public-api.ts"],
-      "package.json": ["package.json"]
+      "package.json": ["package.json"],
+      "@alfresco/aca-content/quick-note": ["projects/aca-content/quick-note/src/public-api.ts"]
     }
   },
   "exclude": ["node_modules"],

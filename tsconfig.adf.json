@@ -45,7 +45,8 @@
       "@alfresco/aca-playwright-shared/*": ["projects/aca-playwright-shared/src/*/index.ts"],
       "package.json": ["package.json"],
       "@angular/*": [ "./node_modules/@angular/*"],
-      "@ngx-translate/*": [ "./node_modules/@ngx-translate/*"]
+      "@ngx-translate/*": [ "./node_modules/@ngx-translate/*"],
+      "@alfresco/aca-content/quick-note": ["projects/aca-content/quick-note/src/public-api.ts"]
     }
   },
   "exclude": ["node_modules"],

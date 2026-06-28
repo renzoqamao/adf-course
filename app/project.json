@@ -94,6 +94,10 @@
             "glob": "**/*",
             "input": "projects/aca-content/quick-note/assets",
             "output": "./assets/quick-note"
+          },
+          { "glob": "quick-note.plugin.json",
+            "input": "projects/aca-content/quick-note/assets",
+            "output": "./assets/plugins"
           }
         ],
         "styles": [

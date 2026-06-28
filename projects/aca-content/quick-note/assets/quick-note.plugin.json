@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../../extension.schema.json",
+  "$id": "quick-note-extension",
+  "$version": "1.0.0",
+  "$name": "Quick Note",
+  "$description": "Agrega una nota al nodo seleccionado",
+  "actions": [
+    {
+      "id": "quick-note.actions.add",
+      "type": "ADD_NOTE",
+      "payload": "$(context.selection.first.entry)"
+    }
+  ],
+  "features": {
+    "toolbar": [
+      {
+        "id": "app.toolbar.more",
+        "children": [
+          {
+            "id": "quick-note.toolbar.add",
+            "order": 700,
+            "icon": "sticky_note_2",
+            "title": "QUICK_NOTE.ACTIONS.ADD",
+            "actions": { "click": "quick-note.actions.add" }
+          }
+        ]
+      }
+    ],
+    "contextMenu": [
+      {
+        "id": "quick-note.context.add",
+        "order": 700,
+        "icon": "sticky_note_2",
+        "title": "QUICK_NOTE.ACTIONS.ADD",
+        "actions": { "click": "quick-note.actions.add" }
+      }
+    ]
+  }
+}
