@@ -20,8 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class NoteDialogComponent {
   private readonly ref = inject(MatDialogRef<NoteDialogComponent>);
-  readonly data = inject<{ maxLength: number }>(MAT_DIALOG_DATA);
-  text = '';
+  readonly data = inject<{ maxLength: number; text?: string }>(MAT_DIALOG_DATA);
+  text = this.data.text ?? '';   // antes: text = '';
 
   save(): void {
     this.ref.close(this.text.trim());   // emite en afterClosed()

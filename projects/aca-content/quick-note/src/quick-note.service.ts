@@ -16,25 +16,29 @@ export class QuickNoteService {
   private readonly api = inject(QuickNoteApiService);
 
   addNote(node: Node): void {
-    if (!node) {
-      return;
-    }
-    this.dialog
-      .open(NoteDialogComponent, {
-        data: { maxLength: this.config.getMaxLength() },
-        minWidth: '420px',
-        restoreFocus: true
-      })
-      .afterClosed()
-      .pipe(
-        filter((text): text is string => !!text),
-        switchMap((text) => this.api.saveNote(node.id, text))   // UC7: guardado real
-      )
-      .subscribe({
-        next: () => this.notification.showInfo('QUICK_NOTE.MESSAGES.SAVED'),
-        error: () => this.notification.showError('QUICK_NOTE.MESSAGES.ERROR')
-      });
+  if (!node) {
+    return;
   }
+  this.api
+    .getNote(node.id)                                    // 1) leer la nota actual
+    .pipe(
+      switchMap((current) =>
+        this.dialog
+          .open(NoteDialogComponent, {
+            data: { maxLength: this.config.getMaxLength(), text: current },  // 2) pasarla
+            minWidth: '420px',
+            restoreFocus: true
+          })
+          .afterClosed()
+      ),
+      filter((text): text is string => !!text),
+      switchMap((text) => this.api.saveNote(node.id, text))                  // 3) guardar
+    )
+    .subscribe({
+      next: () => this.notification.showInfo('QUICK_NOTE.MESSAGES.SAVED'),
+      error: () => this.notification.showError('QUICK_NOTE.MESSAGES.ERROR')
+    });
+}
 
   /** Provisional: en UC7 lo reemplazamos por la llamada a js-api. */
   private saveNote(node: Node, text: string) {
