@@ -1,12 +1,14 @@
 {
   "QUICK_NOTE": {
-    "ACTIONS": { "ADD": "Add note" },
+    "ACTIONS": { "ADD": "Add note", "ADD_TO_SELECTION": "Add note to selection" },
     "DIALOG": {
       "TITLE": "New note",
       "PLACEHOLDER": "Write your note...",
       "SAVE": "Save",
       "CANCEL": "Cancel"
     },
-    "MESSAGES": { "SAVED": "Note saved", "ERROR": "Could not save the note" }
+    "MESSAGES": { "SAVED": "Note saved", "ERROR": "Could not save the note",
+    "SAVED_MANY": "Note saved in {{ count }} element(s)",
+    "SAVED_PARTIAL": "Saved in {{ ok }}; failed in {{ failed }}" }
   }
 }

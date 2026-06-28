@@ -1,7 +1,7 @@
 import { EnvironmentProviders, Provider } from '@angular/core';
 import { provideExtensionConfig, provideExtensions} from '@alfresco/adf-extensions';
 import { provideTranslations } from '@alfresco/adf-core';
-import { canAddNote } from './quick-note.rules';
+import { canAddNote, canAddNoteToSelection } from './quick-note.rules';
 import { provideEffects } from '@ngrx/effects';
 import { QuickNoteEffects } from './quick-note.effects';
 
@@ -13,7 +13,8 @@ export function provideQuickNote(): (Provider | EnvironmentProviders)[] {
     provideEffects(QuickNoteEffects),
     provideExtensions({
       evaluators: {
-        'quick-note.canAddNote': canAddNote   // nombre JSON → función TS
+        'quick-note.canAddNote': canAddNote,   // nombre JSON → función TS
+        'quick-note.canAddNoteToSelection': canAddNoteToSelection
       }
     })
   ];

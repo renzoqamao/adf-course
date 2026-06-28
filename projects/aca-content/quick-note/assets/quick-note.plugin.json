@@ -9,6 +9,11 @@
       "id": "quick-note.actions.add",
       "type": "ADD_NOTE",
       "payload": "$(context.selection.first.entry)"
+    },
+    {
+      "id": "quick-note.actions.addToSelection",
+      "type": "ADD_NOTE_TO_SELECTION",
+      "payload": "$(context.selection.nodes)"
     }
   ],
   "features": {
@@ -23,6 +28,14 @@
             "title": "QUICK_NOTE.ACTIONS.ADD",
             "actions": { "click": "quick-note.actions.add" },
             "rules": { "visible": ["quick-note.canAddNote"] }
+          },
+          {
+            "id": "quick-note.toolbar.addToSelection",
+            "order": 701,
+            "icon": "playlist_add",
+            "title": "QUICK_NOTE.ACTIONS.ADD_TO_SELECTION",
+            "actions": { "click": "quick-note.actions.addToSelection" },
+            "rules": { "visible": ["quick-note.canAddNoteToSelection"] }
           }
         ]
       }
@@ -34,6 +47,14 @@
         "icon": "sticky_note_2",
         "title": "QUICK_NOTE.ACTIONS.ADD",
         "actions": { "click": "quick-note.actions.add" }
+      },
+      {
+        "id": "quick-note.context.addToSelection",
+        "order": 701,
+        "icon": "playlist_add",
+        "title": "QUICK_NOTE.ACTIONS.ADD_TO_SELECTION",
+        "actions": { "click": "quick-note.actions.addToSelection" },
+        "rules": { "visible": ["quick-note.canAddNoteToSelection"] }
       }
     ]
   }

@@ -27,11 +27,15 @@ export class NoteDialogComponent  implements OnInit {
   text = '';
 
   ngOnInit(): void {
-    this.api.getNote(this.data.nodeId).subscribe((current) => {
-      this.text = current;
-      this.loading = false;
-    });
+  if (!this.data.nodeId) {      // modo lote: sin precarga
+    this.loading = false;
+    return;
   }
+  this.api.getNote(this.data.nodeId).subscribe((current) => {
+    this.text = current;
+    this.loading = false;
+  });
+}
 
   save(): void {
     this.ref.close(this.text.trim());   // emite en afterClosed()

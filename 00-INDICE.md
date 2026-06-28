@@ -50,5 +50,6 @@ ACA (Alfresco Content App) = app Angular
 | [UC6](UC6-dialogs-rxjs.md) | Diálogos + RxJS | `MatDialog`, `afterClosed`, `switchMap` | el diálogo para escribir la nota |
 | [UC7](UC7-jsapi-nodes.md) | Integración con el repo | `js-api`, nodos, propiedades | guardar la nota en el nodo |
 | [UC8](UC8-testing.md) | Testing | specs, mocks de `RuleContext` | tests de la extensión |
+| [UC9](UC9-multiple-nodes.md) | Varios nodos (extra) | `forkJoin`, multi-selección, errores parciales | aplicar la nota en lote (aditivo) |
 
 Empezá por [UC1](UC1-angular-refresher.md) y avanzá en orden. ¡Éxitos!
