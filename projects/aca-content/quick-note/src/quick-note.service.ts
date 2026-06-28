@@ -1,16 +1,42 @@
 import { Injectable, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from '@alfresco/adf-core';
 import { Node } from '@alfresco/js-api';
+import { of } from 'rxjs';
+import { filter, switchMap } from 'rxjs/operators';
+import { NoteDialogComponent } from './dialogs/note-dialog/note-dialog.component';
+import { QuickNoteConfigService } from './quick-note-config.service';
 
 @Injectable({ providedIn: 'root' })
 export class QuickNoteService {
+  private readonly dialog = inject(MatDialog);
   private readonly notification = inject(NotificationService);
+  private readonly config = inject(QuickNoteConfigService);
 
-  /** En UC6 abrimos el diálogo; en UC7 guardamos de verdad. */
   addNote(node: Node): void {
     if (!node) {
       return;
     }
-    this.notification.showInfo(`Quick Note sobre: ${node.name}`);
+    this.dialog
+      .open(NoteDialogComponent, {
+        data: { maxLength: this.config.getMaxLength() },
+        minWidth: '420px',
+        restoreFocus: true
+      })
+      .afterClosed()
+      .pipe(
+        filter((text): text is string => !!text),
+        switchMap((text) => this.saveNote(node, text))   // UC7: guardado real
+      )
+      .subscribe({
+        next: () => this.notification.showInfo('QUICK_NOTE.MESSAGES.SAVED'),
+        error: () => this.notification.showError('QUICK_NOTE.MESSAGES.ERROR')
+      });
+  }
+
+  /** Provisional: en UC7 lo reemplazamos por la llamada a js-api. */
+  private saveNote(node: Node, text: string) {
+    console.log('TODO UC7: guardar', text, 'en', node.id);
+    return of(true);
   }
 }

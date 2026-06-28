@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>{{ 'QUICK_NOTE.DIALOG.TITLE' | translate }}</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="outline" style="width: 100%">
+    <textarea matInput rows="4"
+              [(ngModel)]="text"
+              [maxlength]="data.maxLength"
+              [placeholder]="'QUICK_NOTE.DIALOG.PLACEHOLDER' | translate"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">{{ 'QUICK_NOTE.DIALOG.CANCEL' | translate }}</button>
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="!text.trim()">
+    {{ 'QUICK_NOTE.DIALOG.SAVE' | translate }}
+  </button>
+</mat-dialog-actions>
